@@ -4,13 +4,25 @@ import { Text, View, TextInput, Button } from 'react-native';
 class App extends React.Component
 {
   state = {
-    text: "This is a message on screen"
-    ,todo:""
+    text: ""
+    ,todo:[]
   }
   addTodo =()=>
   {
-      this.setState({todo:this.state.text})
+      var newTodo = this.state.text;
+      var arr = this.state.todo;
+      arr.push(newTodo);
+      this.setState ({todo:arr, text:""})
   }
+  renderTodos = () =>
+  {
+    return this.state.todo.map(t =>
+    {
+      return (<Text key = {t}>{t}</Text>
+        )
+    })
+  }
+
   render(){
     return (
       <View style ={styles.viewStyle}>
@@ -18,13 +30,14 @@ class App extends React.Component
         <TextInput 
           style={styles.inputStyle}
           onChangeText={(text)=>this.setState({text})}
+          value = {this.state.text}
         />
         <Button 
           title ="Add Todo"
           color="green"
           onPress={this.addTodo}
         />
-        <Text>{this.state.todo}</Text>
+        {this.renderTodos()}
       </View>
 
       )
