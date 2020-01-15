@@ -37,7 +37,7 @@ class App extends React.Component
   render(){
     return (
       <View style ={styles.viewStyle}>
-        <Text>Hello World This is </Text>
+        <Text style={styles.header}>Note app </Text>
         <TextInput 
           style={styles.inputStyle}
           onChangeText={(text)=>this.setState({text})}
@@ -59,12 +59,19 @@ const styles = {
     flex:1
   ,alignItems: 'center'
   ,justifyContent:'center'
+  ,margin: 10
   },
   inputStyle :{
     height: 40
     ,width: 100
     ,borderColor: "green"
     ,borderWidth:1
+  },
+  header:{
+    fontSize: 30
+    ,color: 'green'
+    ,fontWeight: 'bold'
+
   }
 }
 
