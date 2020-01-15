@@ -4,14 +4,18 @@ import { Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 class App extends React.Component
 {
   state = {
-    text: "This is a message on screen"
-    ,todo:""
+    text: ""
+    ,todo:[]
+  }
+  deleteTodo = (t) =>
+  {
+    var arr = this.state.todo;
+    var pos = arr.indexOf(t);
+    arr.splice(pos,1);
+    this.setState({todo: arr});
   }
   addTodo =()=>
   {
-<<<<<<< Updated upstream
-      this.setState({todo:this.state.text})
-=======
       var newTodo = this.state.text;
       var arr = this.state.todo;
       arr.push(newTodo);
@@ -31,24 +35,10 @@ class App extends React.Component
         </TouchableOpacity>
         )
     })
->>>>>>> Stashed changes
   }
+
   render(){
     return (
-<<<<<<< Updated upstream
-      <View style ={styles.viewStyle}>
-        <Text>Hello World This is </Text>
-        <TextInput 
-          style={styles.inputStyle}
-          onChangeText={(text)=>this.setState({text})}
-        />
-        <Button 
-          title ="Add Todo"
-          color="green"
-          onPress={this.addTodo}
-        />
-        <Text>{this.state.todo}</Text>
-=======
       <View style ={styles.wholeStyle}>
         <View style ={styles.viewStyle}>
           <Text style={styles.header}>Note app </Text>
@@ -65,7 +55,6 @@ class App extends React.Component
           <View style = {{marginTop:100}}></View>
           {this.renderTodos()}
         </View>
->>>>>>> Stashed changes
       </View>
 
       )
@@ -80,20 +69,15 @@ const styles = {
   marginTop: 30
   ,alignItems: 'center'
   ,justifyContent:'center'
-<<<<<<< Updated upstream
-=======
   ,margin: 10
   
->>>>>>> Stashed changes
   },
   inputStyle :{
     height: 40
     ,borderColor: "green"
     ,borderWidth:1
-<<<<<<< Updated upstream
-=======
     ,width: '100%'
-    ,marginBottom: 10
+    ,marginBottom
   },
   header:{
     fontSize: 30
@@ -105,7 +89,6 @@ const styles = {
     fontSize: 18
     ,color: 'white'
     
->>>>>>> Stashed changes
   }
 }
 
