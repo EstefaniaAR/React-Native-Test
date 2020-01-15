@@ -47,6 +47,7 @@ class App extends React.Component
             onChangeText={(text)=>this.setState({text})}
             value = {this.state.text}
           />
+          <View style = {{marginTop:10}}></View>
           <Button 
             title ="Add Todo"
             color="green"
@@ -77,7 +78,6 @@ const styles = {
     ,borderColor: "green"
     ,borderWidth:1
     ,width: '100%'
-    ,marginBottom
   },
   header:{
     fontSize: 30
